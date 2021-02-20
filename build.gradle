@@ -40,7 +40,7 @@ dependencies {
 	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.12.1'
 	compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.23'
     compile group: 'org.freemarker', name: 'freemarker', version: '2.3.23'
-    compile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
+    providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
     
 
 }
