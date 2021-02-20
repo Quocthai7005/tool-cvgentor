@@ -1,0 +1,28 @@
+.mt-60 {
+	margin-top: 60px;
+}
+
+.mt-120 {
+	margin-top: 120px;
+}
+
+.bg-green {
+	background-color: #63b175 !important;
+}
+
+body {
+	font-family: raleway, sans-serif !important;
+}
+
+@font-face {
+    font-family: raleway;
+    src: url('font/Raleway-Medium.ttf');
+}
+
+.dropdown-item:hover{
+	cursor: pointer;
+}
+
+.cursor-pointer {
+	cursor: pointer;
+}
