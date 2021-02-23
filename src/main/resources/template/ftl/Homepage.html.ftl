@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" media="print" href="resources/css/cvgentor-print.css" />
 	<script src="resources/js/jquery-3.5.1.min.js"></script> 
 	<script src="resources/js/bootstrap.min.js"></script>
+	<script src="resources/js/html2pdf.bundle.min.js"></script> 
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-green">
