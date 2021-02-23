@@ -22,14 +22,11 @@ import cvgentor.com.utils.CvReader;
 public class HomeController {
 	
 	@Autowired
-	CategoryService categoryService;
-	
-	@Autowired
-	CurriculumVitaeService curriculumVitaeService;
+	CurriculumVitaeService curriVitaeService;
 
 	@RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
 	public String init(@ModelAttribute("model") ModelMap model) {
-		model.addAttribute("categoryList", categoryService.listAll());
+		model.addAttribute("curriVitaeList", curriVitaeService.listAll());
 	    return "Homepage";
 	}
 	
@@ -40,14 +37,21 @@ public class HomeController {
 
 	@RequestMapping(value = "/themes", method = RequestMethod.GET)
 	public @ResponseBody ResponseEntity<List<CurriculumVitae>> getCurriculumVitaes(@RequestParam(name = "categoryId") Long categoryId) {
-		List<CurriculumVitae> cvs = curriculumVitaeService.getByCategory(categoryId);
+		List<CurriculumVitae> cvs = curriVitaeService.getByCategory(categoryId);
 		return new ResponseEntity<>(cvs, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/theme", method = RequestMethod.GET)
 	public @ResponseBody ResponseEntity<String> getCurriculumVitae(@RequestParam(name = "cvId") Long cvId) {
-		CurriculumVitae cvs = curriculumVitaeService.get(cvId);
+		CurriculumVitae cvs = curriVitaeService.get(cvId);
 		String html = CvReader.htmlReader(cvs.getPath());
 		return new ResponseEntity<>(html, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/editCurriVitae", method = RequestMethod.GET)
+	public String editCurriculumVitae(@ModelAttribute("model") ModelMap model, @RequestParam(name = "cvId") Long cvId) {
+		CurriculumVitae cvs = curriVitaeService.get(cvId);
+		model.addAttribute("cv", cvs);
+		return "UserCvEditPage";
 	}
 }

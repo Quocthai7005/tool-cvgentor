@@ -14,41 +14,30 @@
 	<#include "navbar.html.ftl">
 	<div class="container printArea">
 		<div class="row mt-60 printArea">
-			<div class="col-sm-2 mt-xxl-1 mb-xxl-1 overflow-auto">
+			<div class="col-sm-4 mt-xxl-1 mb-xxl-1">
 				<div class="card">
 					<div class="card-header bg-green text-light">
-						CV themes
-					</div>
-					<div class="card-body text-center" id="themes">
-						<#list model["curriVitaeList"] as curriVitae>
-							<button type="button" value="${curriVitae.id}" class="btn btn-light theme w-100 mb-xxl-2">${curriVitae.name}</button>
-						</#list>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-7 mt-xxl-1 mb-xxl-1 printArea">
-				<div class="card printArea">
-					<div class="card-header bg-green text-light">
-						Preview
-					</div>
-					<div class="card-body printArea">
-						<div id="select-this-cv"></div>
-						<div id="cv-contents">Please select a theme at the left menu to see cv details</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-3 mt-xxl-1 mb-xxl-1">
-				<div class="card">
-					<div class="card-header bg-green text-light">
-						Description
+						Modify style and print!
 					</div>
 					<div class="card-body" id="description">
 
 					</div>
 				</div>
 			</div>
+			<div class="col-sm-8 mt-xxl-1 mb-xxl-1 printArea">
+				<div class="card printArea">
+					<div class="card-header bg-green text-light">
+						CV contents
+					</div>
+					<div class="card-body printArea">
+						<button class="btn btn-primary" onclick="printCv()">Save as PDF</button>
+						<div id="cv-contents">Please select a theme at the left menu to see cv details</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
+	<input type="hidden" id="cvId" value="${model["cv"].id}">
 	<div class="modal fade bd-preview-modal-xl" tabindex="-1" role="dialog">
 		<div class="modal-dialog modal-xl" role="document">
 			<div class="modal-content">
@@ -70,18 +59,15 @@
 	</div>
 	<script>
 		$(document).ready(function() {
-			$('.theme').on('click', function() {
-				var cvId = $(this).attr('value');
-				$.ajax({
-					url: "theme",
-					data: {
-						cvId: cvId
-					},
-					success: function( html ) {
-						$('#select-this-cv').html('<a type="button" class="btn btn-primary" href="editCurriVitae?cvId=' + cvId + '">Select this cv</a>');
-						$('#cv-contents').html(html);
-					}
-				});
+			var cvId = $('#cvId').attr('value');
+			$.ajax({
+				url: "theme",
+				data: {
+					cvId: cvId
+				},
+				success: function( html ) {
+					$('#cv-contents').html(html);
+				}
 			});
 		});
 	</script>
