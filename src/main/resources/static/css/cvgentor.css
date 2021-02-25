@@ -11,12 +11,16 @@
 }
 
 body {
-	font-family: raleway, sans-serif !important;
+	font-family: raleway, sans-serif;
 }
 
 @font-face {
     font-family: raleway;
     src: url('font/Raleway-Medium.ttf') format('truetype');
+}
+@font-face {
+    font-family: times-new-roman;
+    src: url('font/Times-New-Roman-400.ttf') format('truetype');
 }
 
 .dropdown-item:hover{

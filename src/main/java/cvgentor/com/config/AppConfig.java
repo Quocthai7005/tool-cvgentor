@@ -25,6 +25,7 @@ public class AppConfig extends WebMvcConfigurationSupport {
         resolver.setCache(true); 
         resolver.setPrefix(""); 
         resolver.setSuffix(".html.ftl"); 
+        resolver.setContentType("text/html; charset=utf-8");
         return resolver; 
     }
     

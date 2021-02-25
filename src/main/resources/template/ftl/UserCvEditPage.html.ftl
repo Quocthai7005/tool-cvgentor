@@ -1,3 +1,4 @@
+<#ftl encoding="utf-8">.
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +10,7 @@
 	<script src="resources/js/jquery-3.5.1.min.js"></script> 
 	<script src="resources/js/bootstrap.min.js"></script>
 	<script src="resources/js/html2pdf.bundle.min.js"></script> 
+	<meta charset="UTF-8"> 
 </head>
 <body>
 	<#include "navbar.html.ftl">
@@ -17,7 +19,7 @@
 			<div class="col-sm-4 mt-xxl-1 mb-xxl-1">
 				<div class="card">
 					<div class="card-header bg-green text-light">
-						Modify style and print!
+						Modify style and print! chỉnh sửa
 					</div>
 					<div class="card-body" id="description">
 
@@ -62,6 +64,7 @@
 			var cvId = $('#cvId').attr('value');
 			$.ajax({
 				url: "theme",
+				contentType : 'application/json; charset=UTF-8',
 				data: {
 					cvId: cvId
 				},
@@ -70,6 +73,34 @@
 				}
 			});
 		});
+		function toVietnamese() {
+			$('#education').text('Học vấn');
+			$('#projects').text('Dự án');
+			$('#skills').text('Kỹ năng');
+			$('#experience').text('Kinh nghiệm');
+			$('#careerTarget').text('Mục tiêu nghề nghiệp');
+			$('#name').text('Họ tên');
+			$('#gender').text('Giới tính');
+			$('#dob').text('Ngày sinh');
+			$('#phone').text('Điện thoại');
+			$('#email').text('Email');
+			$('#address').text('Địa chỉ');
+			$('#blah').attr('alt', 'Click vào đây để upload hình ảnh');
+		}
+		function toEnglish() {
+			$('#education').text('Education');
+			$('#projects').text('Projects');
+			$('#skills').text('Skills');
+			$('#experience').text('Experience');
+			$('#careerTarget').text('Career Target');
+			$('#name').text('Name');
+			$('#gender').text('Gender');
+			$('#dob').text('Date of birth');
+			$('#phone').text('Phone');
+			$('#email').text('Email');
+			$('#address').text('Address');
+			$('#blah').attr('alt', 'Click on this area to add your picture');
+		}
 	</script>
 </body>
 </html> 
