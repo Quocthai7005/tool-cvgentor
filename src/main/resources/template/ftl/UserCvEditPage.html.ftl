@@ -72,6 +72,7 @@
 				},
 				success: function( html ) {
 					$('#cv-contents').html(html);
+					$('#blah').attr('src', 'resources/img/dummy-avatar.jpg');
 				}
 			});
 		});

@@ -29,7 +29,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-8 mt-xxl-1 mb-xxl-1 printArea">
+			<div id="cv-container" class="col-sm-8 mt-xxl-1 mb-xxl-1 printArea">
 				<div class="card printArea shadow">
 					<div class="card-header bg-green text-light">
 						Preview
@@ -66,8 +66,6 @@
 		$(document).ready(function() {
 			$('#spinner').hide();
 			$('.theme').on('click', function() {
-				$('#cv-contents').html('');
-				$('#select-this-cv').html('');
 				$('#spinner').show();
 				var cvId = $(this).attr('value');
 				$.ajax({
@@ -78,8 +76,11 @@
 					success: function( html ) {
 						$('.editable').attr('contenteditable', 'false');
 						setTimeout(() => {
+							$('#select-this-cv').html('');
+							$('#cv-contents').html('');
 							$('#select-this-cv').html('<a type="button" class="btn btn-warning text-white" href="editCurriVitae?cvId=' + cvId + '">Select this cv</a>');
 							$('#cv-contents').html(html);
+							$('#blah').attr('src', 'resources/img/dummy-avatar.jpg');
 							$('#spinner').hide();
 						}, 2000);
 					}
