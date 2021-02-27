@@ -88,6 +88,8 @@
 			$('#phone').text('Điện thoại');
 			$('#email').text('Email');
 			$('#address').text('Địa chỉ');
+			$('#interest').text('Sở thích');
+			$('#achievement').text('Thành tích');
 			$('#blah').attr('alt', 'Click vào đây để upload hình ảnh');
 		}
 		function toEnglish() {
@@ -102,6 +104,8 @@
 			$('#phone').text('Phone');
 			$('#email').text('Email');
 			$('#address').text('Address');
+			$('#interest').text('Interests');
+			$('#achievement').text('Achievements');
 			$('#blah').attr('alt', 'Click on this area to add your picture');
 		}
 		function print() {

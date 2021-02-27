@@ -74,13 +74,13 @@
 						cvId: cvId
 					},
 					success: function( html ) {
-						$('.editable').attr('contenteditable', 'false');
 						setTimeout(() => {
 							$('#select-this-cv').html('');
 							$('#cv-contents').html('');
 							$('#select-this-cv').html('<a type="button" class="btn btn-warning text-white" href="editCurriVitae?cvId=' + cvId + '">Select this cv</a>');
 							$('#cv-contents').html(html);
 							$('#blah').attr('src', 'resources/img/dummy-avatar.jpg');
+							$('.editable').attr('contenteditable', 'false');
 							$('#spinner').hide();
 						}, 2000);
 					}
@@ -99,6 +99,8 @@
 			$('#phone').text('Điện thoại');
 			$('#email').text('Email');
 			$('#address').text('Địa chỉ');
+			$('#interest').text('Sở thích');
+			$('#achievement').text('Thành tích');
 			$('#blah').attr('alt', 'Click vào đây để upload hình ảnh');
 		}
 		function toEnglish() {
@@ -113,6 +115,8 @@
 			$('#phone').text('Phone');
 			$('#email').text('Email');
 			$('#address').text('Address');
+			$('#interest').text('Interests');
+			$('#achievement').text('Achievements');
 			$('#blah').attr('alt', 'Click on this area to add your picture');
 		}
 	</script>
