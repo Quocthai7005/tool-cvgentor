@@ -36,7 +36,7 @@
 					</div>
 					<div class="card-body printArea">
 						<div id="select-this-cv"></div>
-						<div id="cv-contents">Please select a theme at the left menu to see cv details</div>
+						<div id="cv-contents" class="mt-2">Please select a theme at the left menu to see cv details</div>
 					</div>
 				</div>
 			</div>

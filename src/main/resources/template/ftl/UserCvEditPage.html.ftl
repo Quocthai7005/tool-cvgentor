@@ -33,7 +33,7 @@
 					</div>
 					<div class="card-body printArea">
 						<button class="btn btn-warning text-light" onclick="print()">Save as PDF</button>
-						<div id="cv-contents">Please select a theme at the left menu to see cv details</div>
+						<div id="cv-contents" class="mt-2">Please select a theme at the left menu to see cv details</div>
 					</div>
 				</div>
 			</div>
