@@ -22,9 +22,9 @@
 					<div class="card-header bg-green text-light">
 						Select a style
 					</div>
-					<div class="card-body text-center" id="themes" style="max-height: 50%; overflow-y: scroll">
+					<div class="card-body text-center" id="themes" style="max-height: 500px; overflow-y: auto; scrollbar-width: thin;">
 						<#list model["curriVitaeList"] as curriVitae>
-							<button type="button" value="${curriVitae.id}" class="btn btn-light theme w-100 mb-xxl-2">${curriVitae.name}</button>
+							<button type="button" value="${curriVitae.id}" class="btn btn-light theme w-100 mb-2">${curriVitae.name}</button>
 						</#list>
 					</div>
 				</div>
