@@ -17,9 +17,9 @@
 	<div class="container printArea">
 		<div class="row mt-60 printArea">
 			<div class="col-sm-4 mt-xxl-1 mb-xxl-1">
-				<div class="card">
+				<div class="card shadow">
 					<div class="card-header bg-green text-light">
-						Modify style and print! chỉnh sửa
+						Modify style
 					</div>
 					<div class="card-body" id="description">
 
@@ -27,12 +27,12 @@
 				</div>
 			</div>
 			<div class="col-sm-8 mt-xxl-1 mb-xxl-1 printArea">
-				<div class="card printArea">
+				<div class="card printArea shadow">
 					<div class="card-header bg-green text-light">
 						CV contents
 					</div>
 					<div class="card-body printArea">
-						<button class="btn btn-primary" onclick="printCv()">Save as PDF</button>
+						<button class="btn btn-warning text-light" onclick="print()">Save as PDF</button>
 						<div id="cv-contents">Please select a theme at the left menu to see cv details</div>
 					</div>
 				</div>
@@ -59,8 +59,10 @@
 			</div>
 		</div>
 	</div>
+	<#include "spinner.html.ftl">
 	<script>
 		$(document).ready(function() {
+			$('#spinner').hide();
 			var cvId = $('#cvId').attr('value');
 			$.ajax({
 				url: "theme",
@@ -100,6 +102,11 @@
 			$('#email').text('Email');
 			$('#address').text('Address');
 			$('#blah').attr('alt', 'Click on this area to add your picture');
+		}
+		function print() {
+			$('#spinner').show();
+			setTimeout(function(){ printCv(); }, 1500);
+			
 		}
 	</script>
 </body>

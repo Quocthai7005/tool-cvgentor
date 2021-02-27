@@ -17,8 +17,8 @@
 	<#include "navbar.html.ftl">
 	<div class="container printArea">
 		<div class="row mt-60 printArea">
-			<div class="col-sm-2 mt-xxl-1 mb-xxl-1 overflow-auto">
-				<div class="card">
+			<div class="col-sm-4 mt-xxl-1 mb-xxl-1">
+				<div class="card shadow">
 					<div class="card-header bg-green text-light">
 						Select a style
 					</div>
@@ -29,24 +29,14 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-7 mt-xxl-1 mb-xxl-1 printArea">
-				<div class="card printArea">
+			<div class="col-sm-8 mt-xxl-1 mb-xxl-1 printArea">
+				<div class="card printArea shadow">
 					<div class="card-header bg-green text-light">
 						Preview
 					</div>
 					<div class="card-body printArea">
 						<div id="select-this-cv"></div>
 						<div id="cv-contents">Please select a theme at the left menu to see cv details</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-3 mt-xxl-1 mb-xxl-1">
-				<div class="card">
-					<div class="card-header bg-green text-light">
-						Description
-					</div>
-					<div class="card-body" id="description">
-
 					</div>
 				</div>
 			</div>
@@ -71,9 +61,14 @@
 			</div>
 		</div>
 	</div>
+	<#include "spinner.html.ftl">
 	<script>
 		$(document).ready(function() {
+			$('#spinner').hide();
 			$('.theme').on('click', function() {
+				$('#cv-contents').html('');
+				$('#select-this-cv').html('');
+				$('#spinner').show();
 				var cvId = $(this).attr('value');
 				$.ajax({
 					url: "theme",
@@ -81,9 +76,12 @@
 						cvId: cvId
 					},
 					success: function( html ) {
-						$('#select-this-cv').html('<a type="button" class="btn btn-primary" href="editCurriVitae?cvId=' + cvId + '">Select this cv</a>');
-						$('#cv-contents').html(html);
 						$('.editable').attr('contenteditable', 'false');
+						setTimeout(() => {
+							$('#select-this-cv').html('<a type="button" class="btn btn-warning text-white" href="editCurriVitae?cvId=' + cvId + '">Select this cv</a>');
+							$('#cv-contents').html(html);
+							$('#spinner').hide();
+						}, 2000);
 					}
 				});
 			});
