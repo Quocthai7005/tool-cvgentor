@@ -13,21 +13,21 @@ import cvgentor.com.repo.CategoryRepository;
 @Transactional
 public class CategoryService {
 
-	@Autowired
-	CategoryRepository repo;
-	
+    @Autowired
+    CategoryRepository repo;
+
     public void save(Category cv) {
         repo.save(cv);
     }
-     
+
     public List<Category> listAll() {
         return (List<Category>) repo.findAll();
     }
-     
+
     public Category get(Long id) {
         return repo.findById(id).get();
     }
-     
+
     public void delete(Long id) {
         repo.deleteById(id);
     }

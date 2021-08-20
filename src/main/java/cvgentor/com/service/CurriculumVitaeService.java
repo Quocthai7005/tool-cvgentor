@@ -13,23 +13,23 @@ import cvgentor.com.repo.CurriculumVitaeRepository;
 @Transactional
 public class CurriculumVitaeService {
 
-	@Autowired
-	CurriculumVitaeRepository repo;
+    @Autowired
+    CurriculumVitaeRepository repo;
 
     public void save(CurriculumVitae cv) {
         repo.save(cv);
     }
-     
+
     public List<CurriculumVitae> listAll() {
         return (List<CurriculumVitae>) repo.findAll();
     }
-     
+
     public CurriculumVitae get(Long id) {
         return repo.findById(id).get();
     }
-     
+
     public List<CurriculumVitae> getByCategory(Long category) {
-    	return repo.findByCategory(category);
+        return repo.findByCategory(category);
     }
 
     public void delete(Long id) {

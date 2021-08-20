@@ -35,6 +35,8 @@ dependencies {
     compile group: 'org.springframework', name: 'spring-context-support', version: '5.3.3'
 	compile group: 'org.springframework', name: 'spring-orm', version: '5.3.3'
 	compile group: 'org.springframework.data', name: 'spring-data-jpa', version: '2.4.3'
+	compile group: 'org.springframework.security', name: 'spring-security-core', version: '5.3.3.RELEASE'
+	
 	compile group: 'org.hibernate.orm', name: 'hibernate-core', version: '6.0.0.Alpha6'
 	compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '6.0.0.Alpha6', ext: 'pom'
 	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.12.1'

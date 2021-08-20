@@ -27,8 +27,8 @@
 					</li>
 				</ul>
 				<div class="d-flex">
-					<button class="btn btn-outline-success me-xxl-2 text-light"  data-toggle="modal" data-target=".bd-preview-modal-xl" id="preview">Preview</button>
-					<button class="btn btn-outline-success text-light print">Print</button>
+					<button class="btn btn-outline-success me-xxl-2 text-light"  data-toggle="modal" data-target=".bd-preview-modal-xl" id="preview">Sign up</button>
+					<button class="btn btn-outline-success text-light print">Login</button>
 				</div>
 			</div>
 		</div>

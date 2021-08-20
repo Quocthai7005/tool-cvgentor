@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import cvgentor.com.model.Category;
 
 @Repository
-public interface CategoryRepository extends CrudRepository<Category, Long>  {
+public interface CategoryRepository extends CrudRepository<Category, Long> {
 
 }
